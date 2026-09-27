@@ -1,7 +1,7 @@
 version: 2026.232.0520
 claude-code:
     candy:
-        version: 2026.200.1654
+        version: 2026.270.0813
         description: |-
             Installs the Claude Code CLI via the official native installer
             (https://claude.ai/install.sh) — the currently-recommended method
@@ -44,15 +44,15 @@ claude-code:
                 persistence: required
                 transcript: both
         plan:
-            - run: download the official claude code native installer
+            - run: download the official claude code native installer into the build user's home, never /tmp
               download: "https://claude.ai/install.sh"
-              to: /tmp/claude-code-install.sh
+              to: "${HOME}/.claude-code-install.sh"
               mode: "0755"
               run_as: "${USER}"
             - run: install the claude code native binary (latest stable) via the official installer
               command: |
-                bash /tmp/claude-code-install.sh
-                rm -f /tmp/claude-code-install.sh
+                bash "${HOME}/.claude-code-install.sh"
+                rm -f "${HOME}/.claude-code-install.sh"
               run_as: "${USER}"
             - run: relocate the native binary to /usr/local/bin so it survives the deploy-time home-volume mount
               command: |
