@@ -51,9 +51,8 @@ claude-code:
               run_as: "${USER}"
             - run: install the claude code native binary (latest stable) via the official installer
               command: |
-                u_home=$(getent passwd 1000 | cut -d: -f6)
-                bash "${u_home}/.claude-code-install.sh"
-                rm -f "${u_home}/.claude-code-install.sh"
+                bash "${HOME}/.claude-code-install.sh"
+                rm -f "${HOME}/.claude-code-install.sh"
               run_as: "${USER}"
             - run: relocate the native binary to /usr/local/bin so it survives the deploy-time home-volume mount
               command: |
