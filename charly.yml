@@ -1,7 +1,5 @@
-version: 2026.232.0520
 claude-code:
     candy:
-        version: 2026.270.0813
         description: |-
             Installs the Claude Code CLI via the official native installer
             (https://claude.ai/install.sh) — the currently-recommended method
